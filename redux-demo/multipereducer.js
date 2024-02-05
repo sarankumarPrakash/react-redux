@@ -1,5 +1,8 @@
 const redux=require('redux')
+const reduxlogger =require('redux-logger')
 
+const logger=reduxlogger.createLogger()
+const applyMiddleWare=redux.applyMiddleware
 const createStore=redux.createStore  // craeting a store
 const combineReducer=redux.combineReducers
 const BUY_CAKE='BUY_CAKE' 
@@ -71,10 +74,10 @@ const rootReducer=combineReducer({ //  combineReducers is a higher order functio
     cake:buyCakereducer,
     iceCream:buyIceCreamreducer
 })
-const store =createStore(rootReducer) // create a single store
+const store =createStore(rootReducer,applyMiddleWare(logger)) // create a single store
 console.log('state', store.getState())// get the initial state of the app
 
-const unsubscribe= store.subscribe(()=>console.log(store.getState()))  // every time the state changes , log it . this is like setting up a listener for our state
+const unsubscribe= store.subscribe(()=>{})  // every time the state changes , log it . this is like setting up a listener for our state
 store.dispatch(buycake())  //  dispatch an action to the store
 
 // every time you call dispatch and pass an action ,the Redux will update the state

@@ -22,12 +22,7 @@ function buyicecream(){   // action creator for Ice cream
         
 // }
 
-const initialCakeState={
-    numOfCakes:10 ,
-}
-const initialIceCreamState={
-    numOfIceCream:15 
-}
+
 const reducer=(state=initalstate,action)=>{      // reducer function which takes the previous state and an action as arguments
     // reducer is a function that takes the previous state and an action ,and returns new state
     
